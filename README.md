@@ -1,7 +1,7 @@
 # Sogeti Labs Cognitive App
 Sogeti Labs Demo using Microsoft Cognitive Services
 
-The Cognitive app utilizes the following Microsoft Cognitive Services: Faces API, Computer Vision, and Text Analytics.
+The Cognitive app is a Xamarin Forms app built to run on iOS and Android, which utilizes the following Microsoft Cognitive Services: Faces API, Computer Vision, and Text Analytics.
 
 In order to use the app, use the directions below to collect 3 free API keys for each Cognitive Service being used in the app.
 
