@@ -10,3 +10,5 @@ In order to use the app, use the directions below to collect 3 free API keys for
 3. Add each key to `CognitiveApp.CognitiveApp.Constants.cs`
 
 [https://azure.microsoft.com/en-us/try/cognitive-services/](https://azure.microsoft.com/en-us/try/cognitive-services/)
+
+![Cognitive App Screenshot](screenshots/SogetiLabsCognitiveApp.png?raw=true "Cognitive App Screenshot")
