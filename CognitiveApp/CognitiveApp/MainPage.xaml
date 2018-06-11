@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CognitiveApp.Controls;assembly=CognitiveApp"
+             xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+             x:Class="CognitiveApp.MainPage"
+             x:Name="Main"
+             BackgroundColor="#F0F0F4"
+             Title="{Binding CognitiveServicesType}">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Skip"
+                 Clicked="OnSkipClicked"/>
+  </ContentPage.ToolbarItems>
+
+  <Grid RowSpacing="10">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <xfShapeView:ShapeView ShapeType="Box"
+                           CornerRadius="5"
+                           HorizontalOptions="FillAndExpand"
+                           Color="White"
+                           Margin="10,15"
+                           Grid.Row="0"
+                           Grid.Column="0">
+      <Label Text="{Binding CurrentDirection.FinalName}"
+             FontSize="18"
+             Margin="7"
+             HorizontalOptions="FillAndExpand"
+             HorizontalTextAlignment="Center"/>
+    </xfShapeView:ShapeView>
+
+    <Image x:Name="CurrentImage"
+           Aspect="AspectFit"
+           WidthRequest="300"
+           IsVisible="{Binding ShowCurrentImage}"
+           Grid.Row="1"
+           Grid.Column="0"/>
+
+    <controls:FaceAnswerView Answer="{Binding FaceAnswerApiScores}"
+                             CurrentEmotionType="{Binding CurrentDirection.EmotionType}"
+                             IsVisible="{Binding ShowFaceResults}"
+                             Grid.Row="1"
+                             Grid.Column="0" />
+
+    <controls:TextAnswerView Answer="{Binding TextAnswerScore}"
+                             CurrentEmotionType="{Binding CurrentDirection.EmotionType}"
+                             IsVisible="{Binding ShowTextResults}"
+                             Grid.Row="1"
+                             Grid.Column="0" />
+
+    <controls:PictureAnswerView Answer="{Binding PictureAnswerApiScores}"
+                                IsVisible="{Binding ShowPictureResults}"
+                                Grid.Row="1"
+                                Grid.Column="0" />
+
+    <Entry Text="{Binding TextAnswer}"
+           Placeholder="Write right here"
+           FontSize="14"
+           Margin="10,15"
+           IsVisible="{Binding ShowTextField}"
+           Grid.Row="2"
+           Grid.Column="0"/>
+
+    <controls:MaterialButton Text="{Binding ActionButtonText}"
+                             BackgroundColor="#00398B"
+                             TextColor="#FFFFFF"
+                             FontSize="16"
+                             CornerRadius="0"
+                             Elevation="2"
+                             HorizontalOptions="Center"
+                             WidthRequest="300"
+                             Clicked="OnClicked"
+                             Grid.Row="3"
+                             Grid.Column="0"/>
+
+    <ActivityIndicator Color="#00398B"
+                       InputTransparent="True"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Scale="1.3"
+                       IsVisible="{Binding Source={x:Reference Main}, Path=IsBusy}"
+                       IsRunning="{Binding Source={x:Reference Main}, Path=IsBusy}"
+                       Grid.Row="0"
+                       Grid.RowSpan="3"
+                       Grid.Column="0"/>
+  </Grid>
+</ContentPage>
