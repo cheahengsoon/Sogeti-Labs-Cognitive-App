@@ -34,14 +34,29 @@ namespace CognitiveApp {
             try {
                 switch(_viewModel.CurrentDirection.DirectionType) {
                     case DirectionType.Face:
+                        if(string.IsNullOrWhiteSpace(Constants.FaceApiKey)) {
+                            await DisplayAlert("ERROR", "You must add a Face API key to answer this one.", "OK");
+                            return;
+                        }
+
                         result = await OnFaceClickActionAsync();
                         break;
 
                     case DirectionType.Text:
+                        if(string.IsNullOrWhiteSpace(Constants.TextAnalyticsApiKey)) {
+                            await DisplayAlert("ERROR", "You must add a Text Analytics key to answer this one.", "OK");
+                            return;
+                        }
+
                         result = await OnTextClickActionAsync();
                         break;
 
                     case DirectionType.GeneralPicture:
+                        if(string.IsNullOrWhiteSpace(Constants.ComputerVisionApiKey)) {
+                            await DisplayAlert("ERROR", "You must add a Computer Vision key to answer this one.", "OK");
+                            return;
+                        }
+
                         result = await OnGeneralPicClickActionAsync();
                         break;
 
