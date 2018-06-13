@@ -11,4 +11,4 @@ In order to use the app, use the directions below to collect 3 free API keys for
 
 [https://azure.microsoft.com/en-us/try/cognitive-services/](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
-![Cognitive App Screenshot](screenshots/SogetiLabsCognitiveApp.png?raw=true "Cognitive App Screenshot")
+![Cognitive App Screenshot](screenshots/SogetiLabsCognitiveApp.gif?raw=true "Cognitive App Screenshot")
