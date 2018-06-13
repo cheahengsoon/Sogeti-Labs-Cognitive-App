@@ -69,14 +69,19 @@ namespace CognitiveApp {
                 return;
             } finally {
                 IsBusy = false;
+                Title = _viewModel.CognitiveServicesType;   //Bindings were not working
             }
 
             if(!result.HasValue) {
-                _viewModel.ShowResults = _viewModel.CurrentDirection.DirectionType == DirectionType.GeneralPicture; //General picture returns null on success to avoid showing success or fail alerts below
+                _viewModel.ShowResults = _viewModel.CurrentDirection.DirectionType == DirectionType.GeneralPicture;
                 return;
             }
 
-            _viewModel.TryAgain = !result.Value;
+            if(!result.Value) {
+                _viewModel.TryAgain = true;
+                _viewModel.TextAnswer = string.Empty;
+            }
+
             _viewModel.ShowResults = true;
 
             if(_viewModel.CurrentDirection.DirectionType == DirectionType.GeneralPicture) {
@@ -106,6 +111,8 @@ namespace CognitiveApp {
             CurrentImage.Source = null;
             _viewModel.ResetSecondaryText();
             _viewModel.SetNextDirection();
+
+            Title = _viewModel.CognitiveServicesType;   //Bindings were not working
         }
 
         private async Task<bool?> OnFaceClickActionAsync() {

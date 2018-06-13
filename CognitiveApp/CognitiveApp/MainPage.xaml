@@ -5,8 +5,7 @@
              xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
              x:Class="CognitiveApp.MainPage"
              x:Name="Main"
-             BackgroundColor="#F0F0F4"
-             Title="{Binding CognitiveServicesType}">
+             BackgroundColor="#F0F0F4">
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Skip"
                  Clicked="OnSkipClicked"/>

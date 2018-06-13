@@ -397,7 +397,7 @@ namespace CognitiveApp.ViewModels {
         /// https://stackoverflow.com/a/22668974/3850012
         /// </summary>
         public static void Shuffle<T>(this IList<T> list, Random rnd) {
-            for(int i = 0; i < list.Count - 1; i++) {
+            for(int i = 0; i < list.Count; i++) {
                 list.Swap(i, rnd.Next(i, list.Count));
             }
         }
